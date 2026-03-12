@@ -60,6 +60,21 @@ The following configurations are required to connect to Shopify and QuickBooks.
 - `createCustomerIfNotFound` - Auto-create QB customers if not found
 - Account configurations (Product Sales Account ID, Shipping Account ID, Discount Account ID)
 
+## Known Issues
+
+### Shopify Webhook Latitude/Longitude Error
+
+**Issue:** The integration may fail to process orders with geocoded billing addresses due to a type mismatch in the `ballerinax/trigger.shopify` connector (latitude/longitude sent as numbers instead of strings).
+
+**Status:** Bug reported to Ballerina team - awaiting fix in connector update.
+
+**Workaround:** 
+- Orders without complete addresses will process successfully
+- Customer addresses can be manually updated in QuickBooks after sync
+- All order data (line items, totals, payments) syncs correctly - only address geocoding is affected
+
+**Impact:** Customer billing addresses are not automatically synced to QuickBooks. Customer name, email, and all transaction data sync normally.
+
 ## Deploying on **Devant**
 
 1. Sign in to your Devant account.
