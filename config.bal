@@ -13,10 +13,10 @@ configurable record {
 } quickbooksConfig = ?;
 
 // Transaction type: SALES_RECEIPT or INVOICE
-configurable string transactionType = "SALES_RECEIPT";
+configurable string transactionType = "INVOICE";
 
 // Order event that triggers the sync: FULFILLED, PAID, or COMPLETED
-configurable string orderStatusTrigger = "FULFILLED";
+configurable string orderStatusTrigger = "PAID";
 
 // Auto-create QB customer if not found by email
 configurable boolean createCustomerIfNotFound = true;
